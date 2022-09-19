@@ -1,0 +1,260 @@
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    
+}
+.nav-bar{
+    width:100%;
+    height:105px;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+
+}
+.image img{
+width:130px;
+height:50%;
+margin-left: 138px;
+margin-top: 35px;
+float:left;
+}
+.bar-text{
+    padding-left:350px
+}
+
+.bar-text ul{
+    float:left;
+display:flex;
+list-style: none;
+margin-left:47px;
+margin-top:40px;
+font-family: Sans-serif;
+letter-spacing: 0.16em;
+font-weight: 500;
+font-size: 15px;
+font-style:normal;
+line-height: 15px;
+}
+.bar-text li{
+margin-right: 20px;
+}
+.bar-text li:hover{
+    opacity: 70%;
+    transition:80ms;
+}
+.body-image{
+    background-attachment:fixed;
+    background-image: url("Light_header.jpg");
+     min-height:500px;
+     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.background img{
+        margin-top: 190px;
+        margin-left: 105px;
+        width:641px;
+        height: 115px;
+    
+}
+.first{
+    margin-right:35px ;
+    height: 200px;
+    width:300px;
+}
+.second{
+    margin-right:35px ;
+    height: 200px;
+    width:300px;
+}
+.third{
+    margin-right:10px ;
+    height: 200x;
+    width:300px;
+}
+.three{
+margin-top: 150px;
+display:flex;
+margin-left: 150px;
+}
+.three-text ul{
+    display: flex;
+    font-family:sans-serif;
+    margin-top: 35px;
+    list-style: none;
+    font-weight: 400;
+    line-height: 23.8px;
+    letter-spacing: 0.16em;
+}
+.three-text li{
+    font-size: 14px;
+}
+.career{
+    margin-right:170px;
+    margin-left: 215px;
+}
+.beyond{
+    margin-right:167px;
+}
+.cars{
+    margin-right:15px;
+}
+.icons{
+    display: flex;
+    padding-left:600px ;
+    padding-top:200px ;
+
+}
+.icons:hover{
+    opacity: 50%;
+}
+.fb{
+    background-image: url("fblogo.png");
+    min-height:10px;
+    min-width:15px;
+    margin-right: 10px;
+    background-size: cover;
+}
+.twitter{
+    background-image: url("twitter.png");
+   height:22px;
+   width:22px;
+   margin-right: 10px;
+   background-size: cover;
+}
+.youtube{
+    background-image: url("youtube.png");
+  height:22px;
+  width:22px;
+  margin-right: 10px;
+  background-size: cover;
+
+}
+.insta{
+    background-image: url("insta.png");
+height:22px;
+width:22px;
+background-size: cover;
+}
+.footer{
+padding-top: 33px;
+}
+.line1{
+margin-top: 40px;
+margin-left:486px ;
+font-size:14px;
+line-height:23.8px ;
+letter-spacing:4.06px;
+font-family: sans-serif;
+font-weight: inherit;
+color: #1d1d1d;
+}
+.line2{
+    margin-left:290px;
+    font-size:14px;
+line-height:23.8px ;
+letter-spacing:4.06px;
+font-family: sans-serif;
+font-weight: inherit;
+color: #1d1d1d;
+}
+.line3{
+    margin-left:310px ;
+    font-size:14px;
+line-height:23.8px ;
+letter-spacing:4.06px;
+font-family: sans-serif;
+font-weight: inherit;
+color: #1d1d1d;
+}
+.line4{
+   margin-left:510px ;
+   font-size:14px;
+line-height:37.4px ;
+letter-spacing:4.06px;
+font-family: sans-serif;
+font-weight:inherit;
+color: #1d1d1d; 
+padding-bottom: 50px;
+}
+.line1:hover{
+    color:#aba1a1;
+}
+.line1-2{
+    margin-top: 40px;
+    margin-left:0px ;
+    font-size:14px;
+    line-height:23.8px ;
+    letter-spacing:4.06px;
+    font-family: sans-serif;
+    font-weight: inherit;
+    color: #1d1d1d; 
+}
+.line2-2{
+    margin-top: 40px;
+margin-left:0px ;
+font-size:14px;
+line-height:23.8px ;
+letter-spacing:4.06px;
+font-family: sans-serif;
+font-weight: inherit;
+color: #1d1d1d;
+}
+.line3-2{
+margin-top: 40px;
+margin-left:0px ;
+font-size:14px;
+line-height:23.8px ;
+letter-spacing:4.06px;
+font-family: sans-serif;
+font-weight: inherit;
+color: #1d1d1d;
+}
+.line1:hover{
+    color:#1c1c1c;
+    opacity: 69%;
+    transition: 80ms;
+}
+.line1-2:hover{
+    color:#1c1c1c;
+    opacity: 69%;
+    transition: 80ms;
+}
+.line2:hover{
+    color:#1c1c1c;
+    opacity: 69%;
+    transition: 80ms;
+}
+.line2-2:hover{
+    color:#1c1c1c;
+    opacity: 69%;
+    transition: 80ms;
+}
+.line3:hover{
+    color:#1c1c1c;
+    opacity: 69%;
+}
+.line3-2:hover{
+    color:#1c1c1c;
+    opacity: 69%;
+}
+.fb:hover{
+    opacity: 50%;
+    transition: 80ms;
+}
+
+.twitter:hover{
+    opacity: 50%;
+    transition: 80ms;
+}
+.youtube:hover{
+    opacity: 50%;
+    transition: 80ms;
+}
+.insta:hover{
+    opacity: 50%;
+    transition: 80ms;
+}
