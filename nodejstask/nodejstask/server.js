@@ -1,0 +1,115 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
+const express = require('express')
+const app = express()
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
+
+const initializePassport = require('./passport-config')
+initializePassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+)
+
+const cart = [
+  {   image:'https://1.bp.blogspot.com/-f_LfB7qVgTg/XfndOUMRspI/AAAAAAAABF0/kuGozSVtMlEm4rbjVv_NcDPqOPjVysctwCLcBGAsYHQ/s1600/motorcycle-4318082_1280.jpg',
+      name:'GSX-RR',
+      category:'Suzuki',
+      description:'300HP'
+  },
+  {   image:'https://photos.motogp.com/2020/01/23/desmosedici-gp-3-_0.gallery_full_top_lg.jpg',
+      name:'Desmocedici GP19',
+      category:'Ducati',
+      description:'310HP' 
+  },
+  {   image:'https://photos.motogp.com/2020/02/06/2020_yzr-m1-46_02.gallery_full_top_lg.jpg',
+      name:'YZR M1',
+      category:'Yamaha',
+      description:'290HP'
+  },
+  {   image:'https://www.motorcyclespecs.co.za/Classic%20Racers/Honda%20RC%20213%20V%201000%20Repsol%20%201.jpg',
+      name:'RC 213V',
+      category:'Honda',
+      description:'300HP'
+  }
+]
+const users = []
+
+app.set('view-engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
+app.use(flash())
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(function(req, res, next) {
+  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+})
+app.use(methodOverride('_method'))
+
+app.get('/', checkAuthenticated, (req, res) => {
+  res.render('index.ejs', { name: req.user.name,cart })
+})
+
+app.get('/login', checkNotAuthenticated, (req, res) => {
+  res.render('login.ejs')
+})
+
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}))
+
+app.get('/register', checkNotAuthenticated, (req, res) => {
+  res.render('register.ejs')
+})
+
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword
+    })
+    res.redirect('/login')
+  } catch {
+    res.redirect('/register')
+  }
+})
+
+app.delete('/logout', (req, res) => {
+  req.logOut(function(err){
+    if(err) return next(err)
+    res.redirect('/login')
+})
+})
+
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
+
+app.listen(3000)
